@@ -1,0 +1,5 @@
+# Ignore scanned_tags.txt
+scanned_tags.txt
+
+# Ignore node_modules directory
+node_modules/

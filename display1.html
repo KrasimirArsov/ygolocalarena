@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YGOLocalArena</title>
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        // Listen for 'nfc-data' messages from the main process
+        ipcRenderer.on('nfc-data', (event, message) => {
+            // Log the received message to the console
+            console.log(`Message from Python: ${message}`);
+
+            // Optional: Display the received message in a specific element
+            const outputElement = document.getElementById('output');
+            outputElement.innerHTML = `<p>${message}</p>`;
+        });
+    </script>
+    <style>
+        /* Reset body and HTML margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Full height layout */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header and footer styling */
+        header {
+            display: flex;
+            flex-direction: row; /* Set to row to align divs side by side */
+            height: 20vh;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: row; /* Set to row to align divs side by side */
+            height: 10vh;
+        }
+
+        /* Main section occupies 80% of viewport height */
+        main {
+            display: flex;
+            flex-direction: row; /* Set to row to align divs side by side */
+            height: 70vh;
+            width: 100%;
+        }
+
+        /* Main divs inside `main` taking 50% width each */
+        main div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%; /* Each div takes 50% width of the main section */
+            font-size: 2em;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        header div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 33.3%; /* Each div takes 33% width of the main section */
+            font-size: 1.5em;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        .middle-header {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .middle-header div {
+          width: 100%;
+        }
+
+        footer {
+          display: flex;
+          flex-direction: row;
+        }
+
+        footer div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16.6%; /* Each div takes 16% width of the main section */
+            font-size: 2em;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        main div {
+          font-size: 20em;
+        }
+
+        #output {
+          font-size: 0.5em;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="player-1">
+      <h2>tourenious</h2>
+    </div>
+    <div class="middle-header">
+      <div><h2>01:34</h2></div>
+      <div><h6>Turn Player</h6></div>
+      <div><h6>tourenious</h6></div>
+      <div id="output"></div>
+  </div>
+  <div class="player-2">
+    <h2>rggkiller</h2>
+</div>
+</header>
+
+<main>
+    <div>8000</div>
+    <div>8000</div>
+</main>
+
+<footer>
+    <div><h2>DP</h2></div>
+    <div><h2>SP</h2></div>
+    <div><h2>MP1</h2></div>
+    <div><h2>BP</h2></div>
+    <div><h2>MP2</h2></div>
+    <div><h2>EP</h2></div>
+</footer>
+</body>
+</html>
